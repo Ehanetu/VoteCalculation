@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="container">
+  <title>Form-16 & Form-17 হিসাব (Dynamic) </title>
+    <h1>ফরম–১৬ ও ফরম–১৭ হিসাব (ডাইনামিক) by Anwar Palash </h1>
+    <p class="muted">ফরম–১৬ থেকে অটোভাবে ফরম–১৭ মিলিয়ে দেখাবে।</p>
+  </header>
+
+  <main class="container grid">
+    <!-- FORM 16 -->
+    <section class="card">
+      <h2>ফরম–১৬ (ভোট গণনার বিবরণী)</h2>
+
+      <div class="row">
+        <div>
+          <label>নির্বাচনী এলাকার নম্বর ও নাম</label>
+          <input id="constituency" value="২৯২, চট্টগ্রাম-১৫" />
+        </div>
+        <div>
+          <label>ভোটকেন্দ্রের নম্বর ও নাম</label>
+          <input id="center" value="১, সাতকানিয়া মডেল স্কুল কেন্দ্র" />
+        </div>
+      </div>
+
+      <h3>প্রার্থী তালিকা</h3>
+      <table class="table" id="candidatesTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>প্রার্থীর নাম</th>
+            <th>প্রতীক</th>
+            <th>প্রাপ্ত বৈধ ভোট</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="candidatesBody"></tbody>
+      </table>
+
+      <div class="row">
+        <button id="addCandidateBtn" type="button">+ প্রার্থী যোগ</button>
+        <button id="resetBtn" type="button" class="ghost">Reset</button>
+      </div>
+
+      <div class="summary">
+        <div class="sum-item">
+          <span>মোট বৈধ ভোট (সব প্রার্থী যোগফল)</span>
+          <strong id="totalValid">0</strong>
+        </div>
+        <div class="sum-item">
+          <span>বাতিল ভোট</span>
+          <input id="rejectedVotes" type="number" min="0" value="0" />
+        </div>
+        <div class="sum-item">
+          <span>মোট প্রদত্ত ভোট (বৈধ + বাতিল)</span>
+          <strong id="totalCast">0</strong>
+        </div>
+      </div>
+
+      <p class="hint">✅ ফরম–১৭ এ “ব্যালট বাক্স হতে প্রাপ্ত ও গণনাকৃত” ঘরটা ফরম–১৬ এর “মোট প্রদত্ত ভোট” থেকে অটো আসবে।</p>
+    </section>
+
+    <!-- FORM 17 -->
+    <section class="card">
+      <h2>ফরম–১৭ (ব্যালট পেপারের হিসাব)</h2>
+
+      <div class="row">
+        <div>
+          <label>মোট ভোটার সংখ্যা (ঐচ্ছিক)</label>
+          <input id="totalVoters" type="number" min="0" value="0" />
+        </div>
+        <div>
+          <label>ধারা–১: ব্যালট সিরিয়াল (হইতে)</label>
+          <input id="serialFrom" type="number" min="0" value="10001" />
+        </div>
+        <div>
+          <label>ধারা–১: ব্যালট সিরিয়াল (পর্যন্ত)</label>
+          <input id="serialTo" type="number" min="0" value="27000" />
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="sum-item">
+          <span>ধারা–১: মোট প্রাপ্ত ব্যালট (অটো)</span>
+          <strong id="totalReceived">0</strong>
+        </div>
+      </div>
+
+      <h3>ধারা–২: ব্যবহৃত ব্যালট পেপারের হিসাব</h3>
+      <div class="row">
+        <div>
+          <label>ক. ব্যালট বাক্স হতে প্রাপ্ত ও গণনাকৃত (অটো)</label>
+          <input id="countedFromBox" type="number" min="0" value="0" />
+          <p class="mini muted">ফরম–১৬ এর মোট প্রদত্ত ভোট থেকে অটো সেট হবে (প্রয়োজনে পরিবর্তন করা যাবে)।</p>
+        </div>
+        <div>
+          <label>খ. টেন্ডার ব্যালট</label>
+          <input id="tenderBallots" type="number" min="0" value="0" />
+        </div>
+        <div>
+          <label>গ. আপত্তিকৃত / চ্যালেঞ্জকৃত</label>
+          <input id="challengedBallots" type="number" min="0" value="0" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>ঘ. হারিয়ে যাওয়া ব্যালট</label>
+          <input id="lostBallots" type="number" min="0" value="0" />
+        </div>
+        <div>
+          <label>ঙ. বিনষ্ট হওয়ার কারণে বাতিল</label>
+          <input id="spoiledBallots" type="number" min="0" value="0" />
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="sum-item">
+          <span>ধারা–২: মোট ব্যবহৃত (অটো)</span>
+          <strong id="totalUsed">0</strong>
+        </div>
+      </div>
+
+      <h3>ধারা–৩: অব্যবহৃত ব্যালট (একাধিক সিরিয়াল রেঞ্জ)</h3>
+
+<div class="row">
+  <div>
+    <button id="addUnusedRangeBtn" type="button">+ অব্যবহৃত রেঞ্জ যোগ</button>
+    <button id="clearUnusedRangesBtn" type="button" class="ghost">সব রেঞ্জ মুছুন</button>
+  </div>
+  <div class="span2">
+    <p class="mini muted">
+      অব্যবহৃত ব্যালট যদি একাধিক জায়গায় থাকে (মাঝখানে/শেষে), তাহলে প্রতিটা রেঞ্জ আলাদা করে যোগ করুন।
+    </p>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>অব্যবহৃত সিরিয়াল (হইতে)</th>
+      <th>অব্যবহৃত সিরিয়াল (পর্যন্ত)</th>
+      <th>এই রেঞ্জে মোট</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="unusedRangesBody"></tbody>
+</table>
+
+<div class="summary">
+  <div class="sum-item">
+    <span>ধারা–৩: মোট অব্যবহৃত (সব রেঞ্জ যোগফল)</span>
+    <strong id="totalUnusedText">0</strong>
+  </div>
+</div>
+      <div class="summary">
+        <div class="sum-item">
+          <span>ধারা–৪ মিল: (ব্যবহৃত + অব্যবহৃত) বনাম মোট প্রাপ্ত</span>
+          <strong id="matchStatus">—</strong>
+        </div>
+        <div class="sum-item">
+          <span>পার্থক্য (Diff)</span>
+          <strong id="diffValue">0</strong>
+        </div>
+      </div>
+
+      <div id="alerts" class="alerts"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small class="muted">Offline কাজ করবে। কোনো সার্ভার লাগবে না।</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

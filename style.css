@@ -1,0 +1,100 @@
+:root{
+  --bg:#0b1220;
+  --card:#111a2e;
+  --text:#eaf0ff;
+  --muted:#a9b3d1;
+  --border:#273252;
+  --ok:#2ee59d;
+  --bad:#ff5a6f;
+  --warn:#ffd166;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.container{max-width:1100px;margin:0 auto;padding:18px}
+header h1{margin:0 0 6px 0}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width: 980px){.grid{grid-template-columns:1fr 1fr}}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+h2{margin:0 0 10px 0}
+h3{margin:16px 0 8px}
+label{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input{
+  width:100%;
+  padding:10px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#0c1326;
+  color:var(--text);
+  outline:none;
+}
+input:focus{border-color:#3d4d7a}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin:10px 0;
+}
+@media (min-width: 720px){
+  .row{grid-template-columns:repeat(3, 1fr)}
+}
+button{
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#162447;
+  color:var(--text);
+  cursor:pointer;
+}
+button.ghost{background:transparent}
+.table{width:100%;border-collapse:collapse;margin-top:10px}
+.table th,.table td{border-bottom:1px solid var(--border);padding:8px;text-align:left}
+.table th{color:var(--muted);font-weight:600}
+.table td input{padding:8px}
+
+.summary{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:12px;
+}
+@media (min-width: 720px){
+  .summary{grid-template-columns:repeat(3,1fr)}
+}
+.sum-item{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  background:#0c1326;
+}
+.sum-item span{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+.sum-item strong{font-size:18px}
+.hint{margin-top:10px;color:var(--muted)}
+.mini{font-size:12px;margin:6px 0 0}
+.alerts{margin-top:10px}
+.alert{
+  border-radius:12px;
+  padding:10px;
+  border:1px solid var(--border);
+  background:#0c1326;
+  margin-top:8px;
+}
+.alert.ok{border-color:rgba(46,229,157,.5)}
+.alert.bad{border-color:rgba(255,90,111,.6)}
+.alert.warn{border-color:rgba(255,209,102,.6)}
+.footer{opacity:.9}
+.span2{grid-column: span 2;}
